@@ -16,37 +16,58 @@ Choose Dataset:
 
 ## Part 1: Explore the dataset
 
-```
+```{R}
 # Library
-library()
+library(readr)
+library(assertive)
+library(stringr)
+library(dplyr)
 
 # Dataset
-dataset <- read_csv("")
+prog_book <- read_csv("https://raw.githubusercontent.com/safesit23/INT214-Statistics/main/datasets/prog_book.csv")
+glimpse(prog_book)
+summary(prog_book)
+
+prog_book %>% head()
+prog_book %>% View()
+str(prog_book)
 ```
 
 In this dataset has .....
+Book_title  :
+Description :
+Type  :
+Rating  : 
+Number_Of_Pages :
+Price :
 
 
 ## Part 2: Learning function from Tidyverse
 
 - Function `select()` from package [dplyr](https://dplyr.tidyverse.org/articles/dplyr.html#select-columns-with-select)). It using for select columns
 
-```
-starwars %>% select(name,height)
+```{R}
+prog_book %>% select(Rating,Book_title)
+prog_book %>% select(Book_title,Price)
+prog_book %>% arrange(desc(Price))
+prog_book %>% arrange(desc(Rating))
+prog_book %>% filter(Price > mean(Price, na.rm = TRUE))
+prog_book %>% slice(1:5)
 ```
 ** You can sepearate this part or combine in part of `Transform data with dplyr and finding insight the data`
 
 ## Part 3: Transform data with dplyr and finding insight the data
 
-//Explain here
+1.หนังสือที่มี Rating เกินกว่าค่าเฉลี่ย
 
-```
+```{R}
 #Code here
 ```
 
 Result:
+```{R}
 
-```
+
 #Copy Result from console to here
 ```
 //Explain
